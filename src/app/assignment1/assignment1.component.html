@@ -1,0 +1,78 @@
+<!-- Assignment - 1: 
+1. Have a paragraph & a toggle button, on click of the button control the visibility(Show/Hide) of the paragraph
+2. Create a text-area with maxLength=100, as the user keeps typing display updated Remaining characters.
+3. Create dropdown with state names, when user changes dropdown value, print the selected dropdown value in a paragraph
+4. have 2 inputBoxes, and a dropdown(+,-,*,/) and perform arithmetic operations
+-->
+<h1>Day 1</h1>
+<div>
+    @if(showParagraph){
+    <p>Question 1: Paragraph toggling</p>
+    }
+    <button (click)="onToggleParagraphVisibility()">
+        Toggle Paragraph: {{ showParagraph ? "Hide" : "Show" }}
+    </button>
+</div>
+<hr />
+<div>
+    <p>Question 2</p>
+    <textarea
+        name="question2"
+        id="question2"
+        maxlength="100"
+        [(ngModel)]="textAreaMessage"
+    >
+    </textarea>
+    <p>Remaining characters: {{ 100 - textAreaMessage.length }}</p>
+</div>
+<hr />
+
+<div>
+    <p>Question 3</p>
+    <select name="states" id="state" [(ngModel)]="selectState">
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="NW">New York</option>
+        <option value="WG">Washington</option>
+    </select>
+
+    <p>Selected state: {{ selectState }}</p>
+</div>
+<hr />
+
+<div>
+    <p>Question 4</p>
+    <input type="text" name="operand1" id="operand1" #operand1 />
+    <select name="operator" id="operator" #operator>
+        <option value="*">Multiplication</option>
+        <option value="+">Addition</option>
+        <option value="-">Subtraction</option>
+        <option value="/">Division</option>
+    </select>
+    <input type="text" name="operand2" id="operand2" #operand2 />
+    <button
+        (click)="onPerformOp(operand1.value, operand2.value, operator.value)"
+    >
+        Perform Operation
+    </button>
+    <p>Result: {{ result }}</p>
+</div>
+<hr />
+
+<div>
+    <!-- 5. create a input box, toggle the type of that input box to (text/password)
+ -->
+    <p>Question 5</p>
+    <input [type]="inputType" />
+    <button (click)="onToggleInputType()">Toggle Input Type</button>
+</div>
+<hr />
+
+<div>
+    <!-- 6. create a counter example with 3 controls(increment,decrement,reset) -->
+    <p>Question 6</p>
+    <p>{{ counter }}</p>
+    <button (click)="onIncrement()">Increment</button>
+    <button (click)="onDecrement()">Decrement</button>
+    <button (click)="onReset()">Reset Counter</button>
+</div>

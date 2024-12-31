@@ -1,0 +1,47 @@
+<!-- Declare an array of users, display users in card & table format. 
+ add a button/switch to toggle between table view and card view.
+https://jsonplaceholder.typicode.com/users -->
+<hr />
+<h1>Day 2</h1>
+<button (click)="isCardView = !isCardView">
+    {{ isCardView ? "List View" : "Card View" }}
+</button>
+<br /><br />
+
+@if(isCardView){ @for(user of users; track user.id){
+<app-card
+    [userData]="{
+        name: user.name,
+        email: user.email,
+        address: user.address.street,
+        phone: user.phone,
+        website: user.website,
+        company: user.company.name
+    }"
+></app-card>
+} }@else{
+<table border="1px">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Company</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(user of users; track user.id){
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.address.street }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.website }}</td>
+            <td>{{ user.company.name }}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+}

@@ -1,0 +1,26 @@
+<h1>Day 3</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Employee Code</th>
+            <th>Region</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(employee of employees; track employee.username){
+        <tr>
+            <td>{{ employee.preferredFullName }}</td>
+            <td>{{ employee.employeeCode }}</td>
+            <td>{{ employee.region }}</td>
+            <td>{{ employee.phoneNumber }}</td>
+            <td>{{ employee.emailAddress }}</td>
+            <td>View</td>
+            <td>Delete</td>
+        </tr>
+        }
+    </tbody>
+</table>
