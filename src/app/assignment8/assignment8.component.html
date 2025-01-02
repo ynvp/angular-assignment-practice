@@ -1,0 +1,40 @@
+<h1>Assignment 8</h1>
+
+<div>
+    <input
+        type="text"
+        id="searchTerm"
+        #searchTerm
+        placeholder="Computer Mouse"
+    />&nbsp;
+    <button (click)="searchProducts(searchTerm.value)">Search 🔍</button>&nbsp;
+    <button (click)="sortProducts('asc')">Sort by price ⬆️</button>&nbsp;
+    <button (click)="sortProducts('desc')">Sort by price ⬇️</button>
+</div>
+@for(product of products | paginate: { itemsPerPage: 8, currentPage: page};
+track $index){
+<div class="card">
+    <img
+        [src]="product.images[0]"
+        alt="Product image"
+        style="max-width: 100%; max-height: 50%"
+    />
+    <h1>{{ product.title }}</h1>
+    <p>{{ product.description }}</p>
+    <strong
+        >$ {{ product.price }} (-{{ product.discountPercentage }}%) | 🌟{{
+            product.rating
+        }}</strong
+    ><br />
+    <em>🏃‍♂️‍➡️ Hurry only {{ product.stock }} left</em>
+    <p>{{ product.returnPolicy }}</p>
+    @for(tag of product.tags; track tag){ @if(!$last){
+    <strong>{{ tag }} | </strong>
+    } @else {
+    <strong>{{ tag }}</strong>
+    } }
+</div>
+}
+<div style="text-align: center">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>

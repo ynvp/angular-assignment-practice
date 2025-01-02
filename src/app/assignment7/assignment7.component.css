@@ -1,0 +1,14 @@
+.employee-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.employee-list {
+    width: 70%;
+    margin: 20px;
+}
+
+.new-employee-form {
+    width: 30%;
+    margin: 20px;
+}
