@@ -1,0 +1,16 @@
+<h1>Assignment 6</h1>
+<h2 style="display: grid; place-items: center">Employee CRUD</h2>
+
+<div class="row m-2">
+    <div class="col-sm-8 m-2">
+        <app-employee-list
+            [employeesList]="employeesData"
+            (deleteEmployee)="deleteEmployee($event)"
+        ></app-employee-list>
+    </div>
+    <div class="col-sm-3 m-2">
+        <app-add-employee
+            (addNewEmployee)="addNewEmployee($event)"
+        ></app-add-employee>
+    </div>
+</div>

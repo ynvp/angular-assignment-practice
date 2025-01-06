@@ -1,0 +1,51 @@
+<h3>Employee List</h3>
+
+@if(showEmployeeDeleteDialog1){
+<dialog open>
+    Do you want to delete selected employee?
+    <p>
+        EmpId: {{ selectedEmployee1?.eId }} - Name:
+        {{ selectedEmployee1?.name }}
+    </p>
+    <button
+        class="btn btn-secondary"
+        (click)="showEmployeeDeleteDialog1 = !showEmployeeDeleteDialog1"
+    >
+        No
+    </button>
+    &nbsp; &nbsp;
+    <button class="btn btn-danger" (click)="onDeleteEmployee()">Yes</button>
+</dialog>
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>EID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Gender</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(employee of employeesList() ; track $index){
+        <tr>
+            <td>{{ employee.eId }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.sal }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>
+                <button
+                    class="btn btn-warning"
+                    (click)="onDeleteInit(employee)"
+                >
+                    Delete
+                </button>
+            </td>
+        </tr>
+        }@empty {
+        <p>No Employees present</p>
+        }
+    </tbody>
+</table>

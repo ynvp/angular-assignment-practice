@@ -1,0 +1,12 @@
+<!-- Assignment -5 : -->
+<!-- use toggle button to switch between darkmode & lightmode -->
+<h1>Assignment 5.1</h1>
+<p>Dark Mode / Light Mode</p>
+<button
+    class="btn"
+    [ngClass]="darkMode === true ? 'btn-light' : 'btn-dark'"
+    (click)="changeDisplayMode()"
+>
+    {{ darkMode === true ? "Switch to Light Mode" : "Switch to Dark Mode" }}
+</button>
+<hr />

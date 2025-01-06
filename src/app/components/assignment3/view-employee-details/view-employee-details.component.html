@@ -1,0 +1,14 @@
+<dialog open>
+    <h3>Employee Details</h3>
+    <p>
+        <strong>Name: </strong> {{ employeeData()?.preferredFullName }} <br />
+        <strong>Employee Code: </strong> {{ employeeData()?.employeeCode }}
+        <br />
+        <strong>Region: </strong>{{ employeeData()?.region }} <br />
+        <strong>Phone:</strong> {{ employeeData()?.phoneNumber }} <br />
+        <strong>Email:</strong> {{ employeeData()?.emailAddress }}
+    </p>
+    <form method="dialog" (click)="onClose()">
+        <button class="btn btn-danger">Close</button>
+    </form>
+</dialog>

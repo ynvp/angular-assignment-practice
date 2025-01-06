@@ -1,0 +1,12 @@
+<div class="card border-primary mb-3">
+    <h2 class="card-header">
+        {{ userData().name }}
+    </h2>
+    <div class="card-body">
+        <h6 class="card-title">{{ userData().email }}</h6>
+        <p>Address: {{ userData().address }}</p>
+        <p>Phone: {{ userData().phone }}</p>
+        <a href="{{ userData().website }}">Visit {{ userData().website }}</a>
+        <p>Company: {{ userData().company }}</p>
+    </div>
+</div>

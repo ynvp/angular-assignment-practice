@@ -1,0 +1,53 @@
+<h1>Assignment 4</h1>
+<!-- 1. Create a custom pipe(ordinal) that displays a cardinal number in ordinal format.
+   input : 21,22,23,24  output : 21st, 22nd , 23rd, 24th
+-->
+<label for="inputNumber">Please enter a number to get its Ordinal form: </label>
+<input
+    type="number"
+    name="inputNumber"
+    id="inputNumber"
+    [(ngModel)]="inputNumber"
+/>
+<p>Ordinal Format: {{ inputNumber | ordinal }}</p>
+<hr />
+<!-- 2. create a custom pipe called age which takes a date and returns the age in years. -->
+<label for="inputDob">Enter DOB: </label>
+<input type="date" name="inputDob" id="inputDob" [(ngModel)]="inputDob" />
+<p>Age: {{ inputDob | age }}</p>
+<hr />
+<!-- 3. declare an array of employee objects. display them in a table.
+    create a custom pipe Salutation that will add 'mr. / miss.' before the employee name. -->
+<!-- 4. declare an array of employee objects. display them in a table. 
+   add a search-box above the table. create a custom-pipe to filter/search employees data. -->
+<label for="searchEmployee">Enter Employee Name to search: </label><br />
+<input
+    type="text"
+    name="searchEmployee"
+    id="searchEmployee"
+    [(ngModel)]="searchText"
+    placeholder="John Doe"
+/><br /><br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>EID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(employee of employees | filter: searchText; track $index){
+        <tr>
+            <td>{{ employee.eId }}</td>
+            <td>{{ employee.name | salutation : employee.gender }}</td>
+            <td>{{ employee.sal }}</td>
+            <td>{{ employee.gender }}</td>
+        </tr>
+        }@empty {
+        <p>No employees present</p>
+        }
+    </tbody>
+</table>
+<hr />

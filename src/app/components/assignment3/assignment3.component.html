@@ -1,0 +1,138 @@
+<h1>Assignment 3</h1>
+@if(showEmployeeDetailsView){
+<app-view-employee-details
+    [employeeData]="selectedEmployee"
+    (closeDialog)="showEmployeeDetailsView = !showEmployeeDetailsView"
+>
+</app-view-employee-details>
+} @if(showAddEmployeeDialog){
+<dialog open style="width: 250px">
+    <form [formGroup]="employeeForm" (ngSubmit)="onAddEmployeeSubmit()">
+        <p>
+            <label for="userId">User ID:</label><br />
+            <input
+                type="text"
+                name="userId"
+                id="userId"
+                formControlName="userId"
+            />
+        </p>
+        <p>
+            <label for="jobTitleName">Job Title</label><br />
+            <input
+                type="text"
+                name="jobTitleName"
+                id="jobTitleName"
+                formControlName="jobTitleName"
+            />
+        </p>
+        <p>
+            <label for="firstName">First Name</label><br />
+            <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                formControlName="firstName"
+            />
+        </p>
+        <p>
+            <label for="lastName">Last Name</label><br />
+            <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                formControlName="lastName"
+            />
+        </p>
+        <p>
+            <label for="preferredFullName">Preferred Full Name</label><br />
+            <input
+                type="text"
+                name="preferredFullName"
+                id="preferredFullName"
+                formControlName="preferredFullName"
+            />
+        </p>
+        <p>
+            <label for="employeeCode">Employee Code</label><br />
+            <input
+                type="text"
+                name="employeeCode"
+                id="employeeCode"
+                formControlName="employeeCode"
+            />
+        </p>
+        <p>
+            <label for="region">Region</label><br />
+            <input
+                type="text"
+                name="region"
+                id="region"
+                formControlName="region"
+            />
+        </p>
+        <p>
+            <label for="phoneNumber">Phone</label><br />
+            <input
+                type="tel"
+                name="phoneNumber"
+                id="phoneNumber"
+                formControlName="phoneNumber"
+            />
+        </p>
+        <p>
+            <label for="emailAddress">Email</label> <br />
+            <input
+                type="email"
+                name="emailAddress"
+                id="emailAddress"
+                formControlName="emailAddress"
+            />
+        </p>
+        <p><button type="submit">Submit</button></p>
+    </form>
+</dialog>
+}
+<button
+    class="btn btn-primary m-2"
+    (click)="showAddEmployeeDialog = !showAddEmployeeDialog"
+>
+    Add New Employee</button
+><br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Employee Code</th>
+            <th>Region</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>View</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(employee of employees; track $index){
+        <tr>
+            <td>{{ employee.preferredFullName }}</td>
+            <td>{{ employee.employeeCode }}</td>
+            <td>{{ employee.region }}</td>
+            <td>{{ employee.phoneNumber }}</td>
+            <td>{{ employee.emailAddress }}</td>
+            <td>
+                <button
+                    class="btn btn-secondary"
+                    (click)="onEmployeeDetailsView(employee)"
+                >
+                    View
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="onDeleteInit(employee)">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

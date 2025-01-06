@@ -1,0 +1,54 @@
+<h3>Add New Employee</h3>
+<form (ngSubmit)="onSubmit()" [formGroup]="employeeInputForm">
+    <p class="form-group">
+        <label for="eId">EId</label><br />
+        <input
+            class="form-control"
+            type="number"
+            name="eId"
+            id="eId"
+            formControlName="eId"
+        />
+    </p>
+    <p class="form-group">
+        <label for="name">Name</label><br />
+        <input
+            class="form-control"
+            type="text"
+            name="name"
+            id="name"
+            formControlName="name"
+            required=""
+        />
+    </p>
+    <p class="form-group">
+        <label for="sal">Salary</label><br />
+        <input
+            class="form-control"
+            type="number"
+            name="sal"
+            id="sal"
+            formControlName="sal"
+        />
+    </p>
+    <p class="form-group">
+        <label for="gender">Gender</label><br />
+        <input
+            class="form-control"
+            type="text"
+            name="gender"
+            id="gender"
+            formControlName="gender"
+            required=""
+        />
+    </p>
+    <p class="form-group">
+        <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!employeeInputForm.valid"
+        >
+            SUBMIT
+        </button>
+    </p>
+</form>

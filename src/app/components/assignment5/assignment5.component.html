@@ -1,0 +1,43 @@
+<h1>Assignment 5</h1>
+<!-- Assignment
+==========
+1. create an EmployeeService with an array of employees
+2. inject that service in EmployeeComponent
+3. Display List of Employees in a table
+   have 3 buttons - allEmployees , maleEmployees , femaleEmployees
+-->
+@if(!employees5){
+<p>SELECT A BUTTON BELOW</p>
+}
+<button class="m-2 btn btn-primary" (click)="getAllEmployees()">
+    All Employees
+</button>
+<button class="m-2 btn btn-dark" (click)="getMaleEmployees()">
+    Male Employees
+</button>
+<button class="m-2 btn btn-secondary" (click)="getFemaleEmployees()">
+    Female Employees
+</button>
+<br />
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>EID</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(employee of employees5 ; track $index){
+        <tr>
+            <td>{{ employee.eId }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.sal }}</td>
+            <td>{{ employee.gender }}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+<hr />
