@@ -1,0 +1,8 @@
+<h1>Assignment 9</h1>
+<div class="p-1 traffic-light-container">
+    @for(color of colors; track $index){ @if(color == currentColor){
+    <div class="m-1 traffic-light" [style.backgroundColor]="currentColor"></div>
+    } @else {
+    <div class="m-1 traffic-light"></div>
+    } }
+</div>
