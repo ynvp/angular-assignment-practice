@@ -8,6 +8,7 @@ import { Assignment6Component } from './components/assignment6/assignment6.compo
 import { Assignment7Component } from './components/assignment7/assignment7.component';
 import { Assignment8Component } from './components/assignment8/assignment8.component';
 import { Assignment9Component } from "./components/assignment9/assignment9.component";
+import { Assignment90Component } from "./components/assignment90/assignment90.component";
 
 @Component({
     selector: 'app-root',
@@ -20,7 +21,8 @@ import { Assignment9Component } from "./components/assignment9/assignment9.compo
     Assignment6Component,
     Assignment7Component,
     Assignment8Component,
-    Assignment9Component
+    Assignment9Component,
+    Assignment90Component
 ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
