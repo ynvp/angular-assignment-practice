@@ -1,0 +1,85 @@
+<form [formGroup]="newEmployeeForm" (ngSubmit)="onSubmit()" class="form">
+    <p>
+        <label class="form-label" for="firstName">First Name</label>
+        <input
+            class="form-control border border-primary"
+            type="text"
+            name="firstName"
+            id="firstName"
+            formControlName="firstName"
+        />
+    </p>
+    <p>
+        <label class="form-label" for="lastName">Last Name</label>
+        <input
+            class="form-control border border-primary"
+            type="text"
+            name="lastName"
+            id="lastName"
+            formControlName="lastName"
+        />
+    </p>
+    <p>
+        <label class="form-label" for="email">Email</label>
+        <input
+            class="form-control border border-primary"
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+        />
+    </p>
+    <p>
+        <label class="form-label" for="phoneNumber">Phone Number</label>
+        <input
+            class="form-control border border-primary"
+            type="tel"
+            name="phoneNumber"
+            id="phoneNumber"
+            formControlName="phoneNumber"
+        />
+    </p>
+    <p>
+        <label class="form-label" for="hireDate">Hire Date</label>
+        <input
+            class="form-control border border-primary"
+            type="date"
+            name="hireDate"
+            id="hireDate"
+            formControlName="hireDate"
+        />
+    </p>
+    <p>
+        <label class="form-label" for="salary">Salary</label>
+        <input
+            class="form-control border border-primary"
+            type="number"
+            name="salary"
+            id="salary"
+            formControlName="salary"
+        />
+    </p>
+    <p>
+        <label class="form-label" for="departmentId">Department ID</label>
+        <input
+            class="form-control border border-primary"
+            type="number"
+            name="departmentId"
+            id="departmentId"
+            formControlName="departmentId"
+        />
+    </p>
+    <p>
+        <label class="form-label" for="image">Image URL</label>
+        <input
+            class="form-control border border-primary"
+            type="text"
+            name="image"
+            id="image"
+            formControlName="image"
+        />
+    </p>
+    <p>
+        <button class="btn btn-primary">Submit</button>
+    </p>
+</form>

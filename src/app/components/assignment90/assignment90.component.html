@@ -1,0 +1,46 @@
+<h1 class="text-center m-4">Assignment90</h1>
+
+<div class="row m-4">
+    <div class="col-9">
+        <h4 class="text-center mb-4">Employee List</h4>
+
+        <div class="row">
+            @for(employee of officeEmployees; track $index){
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img
+                        [src]="employee.Image"
+                        alt="Employee Image"
+                        class="card-img-top"
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ employee.FIRST_NAME }} {{ employee.LAST_NAME }}
+                        </h5>
+                        <p class="card-text">
+                            <strong>Email:</strong> {{ employee.EMAIL }} <br />
+                            <strong>Phone:</strong> {{ employee.PHONE_NUMBER }}
+                            <br />
+                            <strong>Hired on:</strong>
+                            {{ employee.HIRE_DATE | date : "shortDate" }} <br />
+                            <strong>Salary:</strong> ${{
+                                employee.SALARY | number : "1.0-0"
+                            }}
+                            <br />
+                            <strong>Department ID:</strong>
+                            {{ employee.DEPARTMENT_ID }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    <div class="col-2">
+        <h4>Add New Employee Form</h4>
+        <app-new-employee-form
+            (addNewEmployee)="addNewEmployee($event)"
+        ></app-new-employee-form>
+    </div>
+</div>
+
