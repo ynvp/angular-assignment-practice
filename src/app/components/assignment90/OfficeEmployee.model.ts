@@ -1,5 +1,5 @@
 export interface OfficeEmployee {
-    id: number;
+    id: string;
     FIRST_NAME: string;
     LAST_NAME: string;
     EMAIL: string;
@@ -9,4 +9,3 @@ export interface OfficeEmployee {
     DEPARTMENT_ID: number;
     Image: string;
 }
-

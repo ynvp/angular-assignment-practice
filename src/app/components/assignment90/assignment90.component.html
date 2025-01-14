@@ -1,13 +1,57 @@
 <h1 class="text-center m-4">Assignment90</h1>
 
+<div class="modal" id="employeeDeleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Employee Delete Operation</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to delete selected employee?</p>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    No
+                </button>
+                <button
+                    type="button"
+                    (click)="deleteEmployee()"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                >
+                    Yes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row m-4">
     <div class="col-9">
         <h4 class="text-center mb-4">Employee List</h4>
-
         <div class="row">
+            @if (isAPICallGoingOn === true) {
+            <div class="text-center">
+                <p>Loading</p>
+                <div class="spinner-border text-success" role="status">
+                    <span class="sr-only"></span>
+                </div>
+            </div>
+            }
+            <!-- Employees fetched and showing response -->
             @for(employee of officeEmployees; track $index){
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
+            <div class="col-md-3">
+                <div class="card text-white bg-dark mb-3">
                     <img
                         [src]="employee.Image"
                         alt="Employee Image"
@@ -29,6 +73,24 @@
                             <br />
                             <strong>Department ID:</strong>
                             {{ employee.DEPARTMENT_ID }}
+                            <br />
+                            <em>Employee ID</em>
+                            {{ employee.id }}
+                            <br />
+                            <button
+                                class="btn btn-primary m-2 p-2"
+                                (click)="onEditEmployee(employee)"
+                            >
+                                Edit Employee</button
+                            ><br />
+                            <button
+                                class="btn btn-danger m-2 p-2"
+                                (click)="initEmployeeDelete(employee)"
+                                data-bs-toggle="modal"
+                                data-bs-target="#employeeDeleteModal"
+                            >
+                                Delete Employee
+                            </button>
                         </p>
                     </div>
                 </div>
@@ -36,11 +98,19 @@
             }
         </div>
     </div>
-    <div class="col-2">
-        <h4>Add New Employee Form</h4>
+    <div class="col-3">
+        <h4>Add New Employee / Edit Employee Form</h4>
         <app-new-employee-form
             (addNewEmployee)="addNewEmployee($event)"
+            [selectedEmployeeForEdit]="selectedEmployeeForEdit"
+            [isFormInEditMode]="isFormInEditMode"
         ></app-new-employee-form>
+        @if(isAddNewEmployeeFailed === true){
+        <dialog open class="bg-info">
+            <strong style="color: white">
+                ⚠️New / Edit Employee Submission Failed! Please retry.⚠️
+            </strong>
+        </dialog>
+        }
     </div>
 </div>
-

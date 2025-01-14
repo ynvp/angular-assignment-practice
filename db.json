@@ -1,0 +1,136 @@
+{
+  "employees": [
+    {
+      "id": "100",
+      "FIRST_NAME": "Steven",
+      "LAST_NAME": "King",
+      "EMAIL": "SKING",
+      "PHONE_NUMBER": "515.123.4567",
+      "HIRE_DATE": "1987-06-17",
+      "SALARY": 24000,
+      "DEPARTMENT_ID": 90,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "101",
+      "FIRST_NAME": "Haila",
+      "LAST_NAME": "Kochhar",
+      "EMAIL": "NKOCHHAR",
+      "PHONE_NUMBER": "515.123.4568",
+      "HIRE_DATE": "1989-09-21",
+      "SALARY": 17091,
+      "DEPARTMENT_ID": 103,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "102",
+      "FIRST_NAME": "Lex",
+      "LAST_NAME": "De Haan",
+      "EMAIL": "LDEHAAN",
+      "PHONE_NUMBER": "515.123.4569",
+      "HIRE_DATE": "1993-01-13",
+      "SALARY": 17000,
+      "DEPARTMENT_ID": 15988856,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "103",
+      "FIRST_NAME": "Harry",
+      "LAST_NAME": "Hunold",
+      "EMAIL": "AHUNOLD@gmail.com",
+      "PHONE_NUMBER": "590.423.3490",
+      "HIRE_DATE": "1990-01-03",
+      "SALARY": 9025,
+      "DEPARTMENT_ID": 105,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "105",
+      "FIRST_NAME": "David",
+      "LAST_NAME": "Austin",
+      "EMAIL": "DAUSTIN",
+      "PHONE_NUMBER": "590.423.4569",
+      "HIRE_DATE": "1997-06-25",
+      "SALARY": 4800,
+      "DEPARTMENT_ID": 60,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "106",
+      "FIRST_NAME": "Valli",
+      "LAST_NAME": "Pataballa",
+      "EMAIL": "VPATABAL",
+      "PHONE_NUMBER": "590.423.4560",
+      "HIRE_DATE": "1998-02-05",
+      "SALARY": 4800,
+      "DEPARTMENT_ID": 60,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "107",
+      "FIRST_NAME": "Diana",
+      "LAST_NAME": "Lorentz",
+      "EMAIL": "DLORENTZ",
+      "PHONE_NUMBER": "590.423.5567",
+      "HIRE_DATE": "1999-02-07",
+      "SALARY": 4200,
+      "DEPARTMENT_ID": 60,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "108",
+      "FIRST_NAME": "Nancy",
+      "LAST_NAME": "Greenberg",
+      "EMAIL": "NGREENBE",
+      "PHONE_NUMBER": "515.124.4569",
+      "HIRE_DATE": "1994-08-17",
+      "SALARY": 12000,
+      "DEPARTMENT_ID": 100,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "109",
+      "FIRST_NAME": "Daniel",
+      "LAST_NAME": "Faviet",
+      "EMAIL": "DFAVIET",
+      "PHONE_NUMBER": "515.124.4169",
+      "HIRE_DATE": "1994-08-17",
+      "SALARY": 9000,
+      "DEPARTMENT_ID": 100,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "110",
+      "FIRST_NAME": "John",
+      "LAST_NAME": "Chen",
+      "EMAIL": "JCHEN",
+      "PHONE_NUMBER": "515.124.4269",
+      "HIRE_DATE": "1997-09-28",
+      "SALARY": 8200,
+      "DEPARTMENT_ID": 100,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "112",
+      "FIRST_NAME": "Jose Manuel",
+      "LAST_NAME": "Urman",
+      "EMAIL": "JMURMAN",
+      "PHONE_NUMBER": "515.124.4469",
+      "HIRE_DATE": "1998-03-07",
+      "SALARY": 7800,
+      "DEPARTMENT_ID": 100,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    },
+    {
+      "id": "117",
+      "FIRST_NAME": "Sigal",
+      "LAST_NAME": "Tobias",
+      "EMAIL": "STOBIAS",
+      "PHONE_NUMBER": "515.127.4564",
+      "HIRE_DATE": "1997-07-24",
+      "SALARY": 2800,
+      "DEPARTMENT_ID": 30,
+      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+    }
+  ]
+}
