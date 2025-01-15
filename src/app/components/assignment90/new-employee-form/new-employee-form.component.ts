@@ -33,9 +33,7 @@ export class NewEmployeeFormComponent {
     generateNewId(): string {
         return Math.floor(Math.random() * 100).toString();
     }
-    constructor() {
-        console.log(this.newEmployeeForm.value);
-    }
+
     ngOnChanges() {
         this.newEmployeeForm.controls['firstName'].setValue(
             this.selectedEmployeeForEdit()?.FIRST_NAME
@@ -63,19 +61,19 @@ export class NewEmployeeFormComponent {
         );
     }
     onSubmit() {
-        this.newEmployee = {
-            id: this.isFormInEditMode()
+        this.newEmployee = new OfficeEmployee(
+            this.isFormInEditMode()
                 ? this.selectedEmployeeForEdit()!.id
                 : this.generateNewId(),
-            FIRST_NAME: this.newEmployeeForm.value.firstName!,
-            LAST_NAME: this.newEmployeeForm.value.lastName!,
-            EMAIL: this.newEmployeeForm.value.email!,
-            PHONE_NUMBER: this.newEmployeeForm.value.phoneNumber!,
-            HIRE_DATE: this.newEmployeeForm.value.hireDate!,
-            SALARY: this.newEmployeeForm.value.salary!,
-            DEPARTMENT_ID: this.newEmployeeForm.value.departmentId!,
-            Image: this.newEmployeeForm.value.image!,
-        };
+            this.newEmployeeForm.value.firstName!,
+            this.newEmployeeForm.value.lastName!,
+            this.newEmployeeForm.value.email!,
+            this.newEmployeeForm.value.phoneNumber!,
+            this.newEmployeeForm.value.hireDate!,
+            this.newEmployeeForm.value.salary!,
+            this.newEmployeeForm.value.departmentId!,
+            this.newEmployeeForm.value.image!
+        );
         console.log(this.newEmployee);
 
         this.addNewEmployee.emit(this.newEmployee);

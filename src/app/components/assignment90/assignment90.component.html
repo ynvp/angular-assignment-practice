@@ -40,14 +40,6 @@
     <div class="col-9">
         <h4 class="text-center mb-4">Employee List</h4>
         <div class="row">
-            @if (isAPICallGoingOn === true) {
-            <div class="text-center">
-                <p>Loading</p>
-                <div class="spinner-border text-success" role="status">
-                    <span class="sr-only"></span>
-                </div>
-            </div>
-            }
             <!-- Employees fetched and showing response -->
             @for(employee of officeEmployees; track $index){
             <div class="col-md-3">
@@ -99,7 +91,7 @@
         </div>
     </div>
     <div class="col-3">
-        <h4>Add New Employee / Edit Employee Form</h4>
+        <h4>Add / Edit Employee Form</h4>
         <app-new-employee-form
             (addNewEmployee)="addNewEmployee($event)"
             [selectedEmployeeForEdit]="selectedEmployeeForEdit"

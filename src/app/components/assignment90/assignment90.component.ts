@@ -11,18 +11,17 @@ import { NewEmployeeFormComponent } from './new-employee-form/new-employee-form.
     styleUrl: './assignment90.component.css',
 })
 export class Assignment90Component implements OnInit, OnDestroy {
-    dummyOfficeEmployee: OfficeEmployee = {
-        id: '',
-        FIRST_NAME: '',
-        LAST_NAME: '',
-        EMAIL: '',
-        PHONE_NUMBER: '',
-        HIRE_DATE: '',
-        SALARY: 0,
-        DEPARTMENT_ID: 0,
-        Image: '',
-    };
-
+    dummyOfficeEmployee: OfficeEmployee = new OfficeEmployee(
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        0,
+        0,
+        ''
+    );
     officeEmployeesService!: OfficeEmployeesService;
     officeEmployees!: OfficeEmployee[];
     addNewEmployeeResponseStatus: number = 201;
@@ -31,7 +30,6 @@ export class Assignment90Component implements OnInit, OnDestroy {
     selectedEmployee!: OfficeEmployee;
     selectedEmployeeForEdit: OfficeEmployee = this.dummyOfficeEmployee;
     selectedEmployeeId!: string;
-    isAPICallGoingOn: boolean = false;
     isFormInEditMode: boolean = false;
 
     constructor() {
@@ -39,25 +37,23 @@ export class Assignment90Component implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.isAPICallGoingOn = true;
         this.officeEmployeesService
             .getOfficeEmployees()
             .subscribe((response: OfficeEmployee[]) => {
-                this.isAPICallGoingOn = false;
                 this.officeEmployees = response;
             });
-        console.log(this.isAPICallGoingOn);
     }
 
+    employeeFullName(employee: OfficeEmployee) {
+        return employee.getFullName();
+    }
     addNewEmployee(newEmployee: OfficeEmployee) {
-        this.isAPICallGoingOn = true;
         if (this.isFormInEditMode === false) {
             this.officeEmployeesService
                 .addNewEmployee(newEmployee)
                 .subscribe((response: any) => {
                     if (this.addNewEmployeeResponseStatus === response.status) {
                         this.officeEmployees.push(newEmployee);
-                        this.isAPICallGoingOn = false;
                     } else {
                         console.log('coming to else');
                         this.isAddNewEmployeeFailed = true;
@@ -67,7 +63,6 @@ export class Assignment90Component implements OnInit, OnDestroy {
                     }
                 });
         } else {
-            this.isAPICallGoingOn = true;
             this.officeEmployeesService
                 .editEmployee(newEmployee)
                 .subscribe((response: any) => {
@@ -75,7 +70,6 @@ export class Assignment90Component implements OnInit, OnDestroy {
                         this.officeEmployeesService
                             .getOfficeEmployees()
                             .subscribe((response: OfficeEmployee[]) => {
-                                this.isAPICallGoingOn = false;
                                 this.officeEmployees = response;
                             });
                         this.selectedEmployeeForEdit = this.dummyOfficeEmployee;
@@ -96,7 +90,6 @@ export class Assignment90Component implements OnInit, OnDestroy {
     }
 
     deleteEmployee() {
-        this.isAPICallGoingOn = true;
         this.officeEmployeesService
             .deleteEmployee(this.selectedEmployeeId)
             .subscribe((response) => {
@@ -105,7 +98,6 @@ export class Assignment90Component implements OnInit, OnDestroy {
                         (e) => e.id === this.selectedEmployeeId
                     );
                     this.officeEmployees.splice(employeeIndexToRemove, 1);
-                    this.isAPICallGoingOn = false;
                 }
             });
     }
