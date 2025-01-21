@@ -10,22 +10,30 @@ import { Assignment8Component } from './components/assignment8/assignment8.compo
 import { Assignment9Component } from './components/assignment9/assignment9.component';
 import { Assignment90Component } from './components/assignment90/assignment90.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { HttpDemoComponent } from './components/http-demo/http-demo.component';
+import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
+import { SubjectDemoComponent } from './components/subject-demo/subject-demo.component';
+import { SignalDemoComponent } from "./components/signal-demo/signal-demo.component";
 
 @Component({
     selector: 'app-root',
     imports: [
-        Assignment1Component,
-        Assignment2Component,
-        Assignment3Component,
-        Assignment4Component,
-        Assignment5Component,
-        Assignment6Component,
-        Assignment7Component,
-        Assignment8Component,
-        Assignment9Component,
-        Assignment90Component,
-        LoadingComponent,
-    ],
+    Assignment1Component,
+    Assignment2Component,
+    Assignment3Component,
+    Assignment4Component,
+    Assignment5Component,
+    Assignment6Component,
+    Assignment7Component,
+    Assignment8Component,
+    Assignment9Component,
+    Assignment90Component,
+    LoadingComponent,
+    HttpDemoComponent,
+    ObservableDemoComponent,
+    SubjectDemoComponent,
+    SignalDemoComponent
+],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
 })

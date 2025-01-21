@@ -55,7 +55,6 @@ export class Assignment90Component implements OnInit, OnDestroy {
                     if (this.addNewEmployeeResponseStatus === response.status) {
                         this.officeEmployees.push(newEmployee);
                     } else {
-                        console.log('coming to else');
                         this.isAddNewEmployeeFailed = true;
                         this.generalTimer = setTimeout(() => {
                             this.isAddNewEmployeeFailed = false;

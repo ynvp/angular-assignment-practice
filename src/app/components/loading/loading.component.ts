@@ -13,7 +13,6 @@ export class LoadingComponent {
 
     ngOnInit() {
         this.loadingService.loading$.subscribe((val) => {
-            console.log('val loader changed' + val);
             this.isLoading = val;
         });
     }
