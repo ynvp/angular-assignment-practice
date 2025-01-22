@@ -1,0 +1,155 @@
+<h1>Angular Forms</h1>
+
+<h6>Template Driven Forms</h6>
+
+<!-- Modal -->
+<div
+    class="modal fade"
+    id="employeeRegistrationModal"
+    tabindex="-1"
+    aria-labelledby="employeeRegistrationLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="employeeRegistrationLabel">
+                    Submitted Data
+                </h1>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                <p>First Name: {{ employee.firstName }}</p>
+                <p>Last Name: {{ employee.lastName }}</p>
+                <p>Age: {{ employee.age }}</p>
+                <p>Gender: {{ employee.gender }}</p>
+                <p>Skills: {{ employee.skills }}</p>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<h4>Employee Registration Form</h4>
+<form #myForm="ngForm" (submit)="register(myForm)" (reset)="resetForm(myForm)">
+    <p class="form-group">
+        <label class="p-1" for="firstName">First Name</label>
+        <input
+            type="text"
+            name="firstName"
+            #fName="ngModel"
+            [(ngModel)]="employee.firstName"
+            required
+            minlength="5"
+        />
+        <span
+            class="text-danger"
+            *ngIf="fName.dirty && fName.hasError('required')"
+            >First Name is required</span
+        >
+        <span
+            class="text-danger"
+            *ngIf="fName.dirty && fName.hasError('minlength')"
+            >Name must have minimum length of 5</span
+        >
+    </p>
+    <p class="form-group">
+        <label class="p-1" for="lastName">Last Name</label>
+        <input
+            type="text"
+            name="lastName"
+            #lName="ngModel"
+            [(ngModel)]="employee.lastName"
+            required
+            minlength="3"
+        />
+        <span
+            class="text-danger"
+            *ngIf="lName.dirty && lName.hasError('required')"
+            >Last Name Required</span
+        >
+        <span
+            class="text-danger"
+            *ngIf="lName.dirty && lName.hasError('minlength')"
+            >Last Name should have more than 3 characters</span
+        >
+    </p>
+    <p class="form-group">
+        <label class="p-1" for="age">Age</label>
+        <input type="number" name="age" max="120" required ngModel />
+    </p>
+    <p class="form-group">
+        <label class="p-1">Gender</label>
+        <br />
+        <input type="radio" name="gender" id="male" value="male" ngModel />
+        <label class="p-2" for="male">Male</label>
+        <br />
+        <input type="radio" name="gender" id="female" value="female" ngModel />
+        <label class="p-2" for="female">Female</label>
+    </p>
+    <p class="form-group">
+        <label for="about">About</label><br />
+        <textarea
+            style="width: 300px; height: 100px"
+            name="about"
+            id="about"
+            maxlength="100"
+            ngModel
+            #about
+            required
+        ></textarea>
+        <br />
+        <em>Characters left: {{ 100 - about.value.length }} </em>
+    </p>
+    <p class="form-group">
+        <label for="skills">Skills</label><br />
+        <select
+            name="skills"
+            id="skills"
+            multiple
+            #skillsSelect="ngModel"
+            [(ngModel)]="employee.skills"
+            required
+        >
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="C++">C++</option>
+            <option value="C">C</option>
+        </select>
+        <span
+            class="text-warning"
+            *ngIf="skillsSelect.dirty && skillsSelect.hasError('required')"
+            >Select one option to continue.</span
+        >
+    </p>
+    <p class="form-group">
+        <button
+            class="btn btn-warning m-2"
+            type="submit"
+            data-bs-toggle="modal"
+            data-bs-target="#employeeRegistrationModal"
+            [disabled]="myForm.invalid"
+        >
+            Submit
+        </button>
+        <input class="btn btn-secondary" type="reset" value="reset" />
+    </p>
+</form>
+
+<style>
+    label {
+        font-weight: bold;
+    }
+</style>

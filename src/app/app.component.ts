@@ -14,6 +14,7 @@ import { HttpDemoComponent } from './components/http-demo/http-demo.component';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
 import { SubjectDemoComponent } from './components/subject-demo/subject-demo.component';
 import { SignalDemoComponent } from "./components/signal-demo/signal-demo.component";
+import { FormsDemoComponent } from "./components/forms-demo/forms-demo.component";
 
 @Component({
     selector: 'app-root',
@@ -32,7 +33,8 @@ import { SignalDemoComponent } from "./components/signal-demo/signal-demo.compon
     HttpDemoComponent,
     ObservableDemoComponent,
     SubjectDemoComponent,
-    SignalDemoComponent
+    SignalDemoComponent,
+    FormsDemoComponent
 ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
