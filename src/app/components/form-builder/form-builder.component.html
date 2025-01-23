@@ -1,0 +1,53 @@
+<h4>Form Builder</h4>
+<h4>Register User</h4>
+
+<form (submit)="submitUserData(registerForm)" [formGroup]="registerForm">
+    <p>
+        First Name
+        <input
+            type="text"
+            name="firstName"
+            id="firstName1"
+            formControlName="firstName"
+        />
+        @if (registerForm.controls.firstName.hasError('required')) {
+        <span class="text-danger">First Name Required</span>
+        } @if(registerForm.controls.firstName.hasError('minlength')){
+        <span class="text-danger">Minimum 5 characters required</span>
+        }
+    </p>
+    <p>
+        Last Name
+        <input
+            type="text"
+            name="lastName"
+            id="lastName1"
+            formControlName="lastName"
+        />
+    </p>
+    <p>
+        Email
+        <input type="text" name="email" id="email1" formControlName="email" />
+    </p>
+    <div formGroupName="address">
+        <p>
+            Street
+            <input
+                type="text"
+                name="street"
+                id="street1"
+                formControlName="street"
+            />
+        </p>
+        <p>
+            City
+            <input type="text" name="city" id="city1" formControlName="city" />
+        </p>
+        <p>
+            Zip
+            <input type="text" name="zip" id="zip1" formControlName="zip" />
+        </p>
+    </div>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+</form>

@@ -15,6 +15,9 @@ import { ObservableDemoComponent } from './components/observable-demo/observable
 import { SubjectDemoComponent } from './components/subject-demo/subject-demo.component';
 import { SignalDemoComponent } from "./components/signal-demo/signal-demo.component";
 import { FormsDemoComponent } from "./components/forms-demo/forms-demo.component";
+import { ModelFormsDemoComponent } from "./components/model-forms-demo/model-forms-demo.component";
+import { FormBuilderComponent } from "./components/form-builder/form-builder.component";
+import { FormBuilderEmployeeComponent } from "./components/form-builder-employee/form-builder-employee.component";
 
 @Component({
     selector: 'app-root',
@@ -34,7 +37,10 @@ import { FormsDemoComponent } from "./components/forms-demo/forms-demo.component
     ObservableDemoComponent,
     SubjectDemoComponent,
     SignalDemoComponent,
-    FormsDemoComponent
+    FormsDemoComponent,
+    ModelFormsDemoComponent,
+    FormBuilderComponent,
+    FormBuilderEmployeeComponent
 ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
