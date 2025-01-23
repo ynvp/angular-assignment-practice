@@ -1,61 +1,63 @@
 <h4>Employee Form Builder Form</h4>
 
 <form [formGroup]="employeeForm" (submit)="onSubmit()">
-    <div formArrayName="employees">
+    <div formArrayName="employees" class="m-2 p-2">
         @for(employee of employees().controls; track employee; let empIndex =
         $index){
-        <div>
-            <div formGroupName="empIndex">
-                {{ empIndex }}
-                FirstName
-                <input
-                    type="text"
-                    name="firstName"
-                    formControlName="firstName"
-                />
+        <div [formGroupName]="empIndex">
+            {{ empIndex }}
+            FirstName
+            <input type="text" name="firstName" formControlName="firstName" />
 
-                LastName:
-                <input type="text" name="LastName" formControlName="lastName" />
-                <button (click)="removeEmployee(empIndex)">
-                    Remove Employee 🗑️
-                </button>
+            LastName:
+            <input type="text" name="LastName" formControlName="lastName" />
+            <button
+                class="btn btn-danger m-2"
+                (click)="removeEmployee(empIndex)"
+            >
+                Remove Employee 🗑️
+            </button>
 
-                <div formArrayName="skills">
-                    @for (skill of employeeSkills(empIndex).controls; track
-                    skill; let skillIndex = $index) {
-                    <div>
-                        <div formGroupName="skillIndex">
-                            {{ skillIndex }}
-                            Skill
-                            <input
-                                type="text"
-                                name="skill"
-                                formControlName="skill"
-                            />
-                            Experience:
-                            <input
-                                type="number"
-                                name="exp"
-                                formControlName="exp"
-                            />
-                            <button
-                                (click)="
-                                    removeEmployeeSkill(empIndex, skillIndex)
-                                "
-                            >
-                                Remove Skill 🗑️
-                            </button>
-                        </div>
+            <div formArrayName="skills">
+                @for (skill of employeeSkills(empIndex).controls; track skill;
+                let skillIndex = $index) {
+                <div>
+                    <div [formGroupName]="skillIndex">
+                        {{ skillIndex }}
+                        Skill
+                        <input
+                            type="text"
+                            name="skill"
+                            formControlName="skill"
+                        />
+                        Experience:
+                        <input type="number" name="exp" formControlName="exp" />
+                        <button
+                            class="btn btn-danger m-2"
+                            (click)="removeEmployeeSkill(empIndex, skillIndex)"
+                        >
+                            Remove Skill 🗑️
+                        </button>
                     </div>
-                    }
                 </div>
-                <button type="button" (click)="addEmployeeSkill(empIndex)">
-                    Add Skill
-                </button>
+                }
             </div>
+            <button
+                class="btn btn-secondary m-2"
+                type="button"
+                (click)="addEmployeeSkill(empIndex)"
+            >
+                Add Skill
+            </button>
         </div>
         }
-        <button type="button" (click)="addEmployee()">Add Employee</button>
+        <button
+            class="btn btn-primary m-2"
+            type="button"
+            (click)="addEmployee()"
+        >
+            Add Employee
+        </button>
     </div>
 </form>
 
