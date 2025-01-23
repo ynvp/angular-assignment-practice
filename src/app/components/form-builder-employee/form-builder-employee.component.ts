@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormBuilder, type FormArray, type FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-form-builder-employee',
-    imports: [],
+    imports: [ReactiveFormsModule, CommonModule],
     templateUrl: './form-builder-employee.component.html',
     styleUrl: './form-builder-employee.component.css',
 })
