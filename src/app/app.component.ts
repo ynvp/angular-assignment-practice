@@ -13,35 +13,39 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { HttpDemoComponent } from './components/http-demo/http-demo.component';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
 import { SubjectDemoComponent } from './components/subject-demo/subject-demo.component';
-import { SignalDemoComponent } from "./components/signal-demo/signal-demo.component";
-import { FormsDemoComponent } from "./components/forms-demo/forms-demo.component";
-import { ModelFormsDemoComponent } from "./components/model-forms-demo/model-forms-demo.component";
-import { FormBuilderComponent } from "./components/form-builder/form-builder.component";
-import { FormBuilderEmployeeComponent } from "./components/form-builder-employee/form-builder-employee.component";
+import { SignalDemoComponent } from './components/signal-demo/signal-demo.component';
+import { FormsDemoComponent } from './components/forms-demo/forms-demo.component';
+import { ModelFormsDemoComponent } from './components/model-forms-demo/model-forms-demo.component';
+import { FormBuilderComponent } from './components/form-builder/form-builder.component';
+import { FormBuilderEmployeeComponent } from './components/form-builder-employee/form-builder-employee.component';
+import { RoutingDemoComponent } from './components/routing-demo/routing-demo.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-root',
     imports: [
-    Assignment1Component,
-    Assignment2Component,
-    Assignment3Component,
-    Assignment4Component,
-    Assignment5Component,
-    Assignment6Component,
-    Assignment7Component,
-    Assignment8Component,
-    Assignment9Component,
-    Assignment90Component,
-    LoadingComponent,
-    HttpDemoComponent,
-    ObservableDemoComponent,
-    SubjectDemoComponent,
-    SignalDemoComponent,
-    FormsDemoComponent,
-    ModelFormsDemoComponent,
-    FormBuilderComponent,
-    FormBuilderEmployeeComponent
-],
+        // Assignment1Component,
+        // Assignment2Component,
+        // Assignment3Component,
+        // Assignment4Component,
+        // Assignment5Component,
+        // Assignment6Component,
+        // Assignment7Component,
+        // Assignment8Component,
+        // Assignment9Component,
+        // Assignment90Component,
+        // LoadingComponent,
+        // HttpDemoComponent,
+        // ObservableDemoComponent,
+        // SubjectDemoComponent,
+        // SignalDemoComponent,
+        // FormsDemoComponent,
+        // ModelFormsDemoComponent,
+        // FormBuilderComponent,
+        // FormBuilderEmployeeComponent,
+        RouterOutlet,
+        RoutingDemoComponent,
+    ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
 })

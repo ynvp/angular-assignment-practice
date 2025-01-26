@@ -1,7 +1,7 @@
 <h4>Form Builder</h4>
 <h4>Register User</h4>
 
-<form (submit)="submitUserData(registerForm)" [formGroup]="registerForm">
+<form [formGroup]="registerForm" (submit)="submitUserData(registerForm)">
     <p>
         First Name
         <input
@@ -26,8 +26,29 @@
         />
     </p>
     <p>
+        Age:
+        <input type="number" name="Age" id="age" formControlName="age" />
+        @if(registerForm.controls.age.hasError('invalidAge')){
+        <span class="text-danger">Age should be between 18 & 60</span>
+        }
+    </p>
+    <p>
         Email
         <input type="text" name="email" id="email1" formControlName="email" />
+    </p>
+    <p>
+        Password:
+        <input formControlName="password" />
+        @if(registerForm.hasError('passwordMismatch')){
+        <span class="text-danger">Password & Confirm Password mismatch</span>
+        }
+    </p>
+    <p>
+        Confirm Password
+        <input formControlName="confirmPassword" />
+        @if(registerForm.hasError('passwordMismatch')){
+        <span class="text-danger">Password & Confirm Password mismatch</span>
+        }
     </p>
     <div formGroupName="address">
         <p>
