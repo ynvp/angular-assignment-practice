@@ -76,6 +76,12 @@
                                 Edit Employee</button
                             ><br />
                             <button
+                                class="btn btn-secondary"
+                                [routerLink]="['/employeeDetails', employee.id]"
+                            >
+                                View Employee Details
+                            </button>
+                            <button
                                 class="btn btn-danger m-2 p-2"
                                 (click)="initEmployeeDelete(employee)"
                                 data-bs-toggle="modal"

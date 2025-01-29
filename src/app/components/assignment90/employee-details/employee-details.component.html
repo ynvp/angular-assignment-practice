@@ -1,0 +1,14 @@
+<h3>Employee Details</h3>
+<h5 class="card-title">{{ employee.FIRST_NAME }} {{ employee.LAST_NAME }}</h5>
+<strong>Email:</strong> {{ employee.EMAIL }} <br />
+<strong>Phone:</strong> {{ employee.PHONE_NUMBER }}
+<br />
+<strong>Hired on:</strong>
+{{ employee.HIRE_DATE | date : "shortDate" }} <br />
+<strong>Salary:</strong> ${{ employee.SALARY | number : "1.0-0" }}
+<br />
+<strong>Department ID:</strong>
+{{ employee.DEPARTMENT_ID }}
+<br />
+<em>Employee ID</em>
+{{ employee.id }}

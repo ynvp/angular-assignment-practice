@@ -3,10 +3,11 @@ import { OfficeEmployeesService } from '../../services/office-employees.service'
 import { OfficeEmployee } from './OfficeEmployee.model';
 import { CommonModule } from '@angular/common';
 import { NewEmployeeFormComponent } from './new-employee-form/new-employee-form.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-assignment90',
-    imports: [CommonModule, NewEmployeeFormComponent],
+    imports: [CommonModule, NewEmployeeFormComponent, RouterLink],
     templateUrl: './assignment90.component.html',
     styleUrl: './assignment90.component.css',
 })
