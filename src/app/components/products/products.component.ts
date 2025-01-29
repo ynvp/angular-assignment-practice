@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-products',
-    imports: [],
+    imports: [RouterLink],
     templateUrl: './products.component.html',
     styleUrl: './products.component.css',
 })
