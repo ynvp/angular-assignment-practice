@@ -1,1 +1,6 @@
-<p>contact-us works!</p>
+<form (submit)="onSubmit()">
+    <input type="text" name="namec" [(ngModel)]="name" required />
+    <input type="text" name="email" [(ngModel)]="email" />
+    <input type="submit" value="Submit" />
+</form>
+<h1>Form has changes:: {{ hasChanges ? "Yes" : "No" }}</h1>

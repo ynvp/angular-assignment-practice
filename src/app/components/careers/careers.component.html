@@ -1,1 +1,22 @@
-<p>careers works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <br /><br />
+            <a
+                class="nav-link m-2 p-2"
+                routerLink="contract"
+                routerLinkActive="active"
+                >Contract Jobs</a
+            >
+            <a
+                class="nav-link m-2 p-2"
+                routerLink="permanent"
+                routerLinkActive="active"
+                >Permanent Jobs</a
+            >
+        </div>
+        <div class="col-sm-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
