@@ -14,6 +14,7 @@ import { PermanentComponent } from './components/careers/permanent/permanent.com
 import { ContractComponent } from './components/careers/contract/contract.component';
 import { adminGuard } from './guards/admin.guard';
 import { hasChangesGuard } from './guards/has-changes.guard';
+import { productDetailsResolver } from './resolvers/product-details.resolver';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -38,7 +39,11 @@ export const routes: Routes = [
         component: ProductsComponent,
         canActivate: [adminGuard],
     },
-    { path: 'productDetails', component: ProductDetailsComponent },
+    {
+        path: 'productDetails',
+        component: ProductDetailsComponent,
+        resolve: { product: productDetailsResolver },
+    },
     { path: '', component: HomeComponent },
     { path: '**', component: NotFoundComponent },
 ];
