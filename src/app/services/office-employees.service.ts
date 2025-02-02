@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { OfficeEmployee } from '../components/assignment90/OfficeEmployee.model';
 import { HttpClient } from '@angular/common/http';
+import type { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -14,7 +15,7 @@ export class OfficeEmployeesService {
         this.httpClient = inject(HttpClient);
     }
 
-    getOfficeEmployees(): any {
+    getOfficeEmployees(): Observable<Object> {
         return this.httpClient.get(this.baseUrl, { observe: 'body' });
     }
 
