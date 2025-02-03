@@ -2,56 +2,66 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, exhaustMap, catchError } from 'rxjs/operators';
-import { OfficeEmployeesService } from '../../services/office-employees.service';
+import { EmployeeService } from '../../services/employee.service';
 import {
     addEmployee,
     deleteEmployee,
     fetchEmployees,
 } from '../actions/employee.actions';
-
 @Injectable()
 export class EmployeeEffects {
-    loadEmployees$ = createEffect(() =>
-        this.actions$.pipe(
-            ofType(fetchEmployees),
-            exhaustMap(() =>
-                this.officeEmployeesService.getOfficeEmployees().pipe(
-                    map((OfficeEmployees) => ({
-                        type: '[Employees API] Employees Loaded Successfully',
-                        payload: OfficeEmployees,
-                    })),
-                    catchError(() =>
-                        of({ type: '[Employees API] Employees Loaded Error' })
+    loadEmployees$: any;
+    deleteEmployee$: any;
+    addEmployee$: any;
+    constructor(
+        private actions$: Actions,
+        private employeeService: EmployeeService
+    ) {
+        this.loadEmployees$ = createEffect(() =>
+            this.actions$.pipe(
+                ofType(fetchEmployees),
+                exhaustMap(() =>
+                    this.employeeService.fetchAllEmployees().pipe(
+                        map((Employees) => ({
+                            type: '[Employees API] Employees Loaded Successfully',
+                            payload: Employees,
+                        })),
+                        catchError(() =>
+                            of({
+                                type: '[Employees API] Employees Loaded Error',
+                            })
+                        )
                     )
                 )
             )
-        )
-    );
-    deleteEmployee$ = createEffect(() =>
-        this.actions$.pipe(
-            ofType(deleteEmployee),
-            exhaustMap((action: any) =>
-                this.officeEmployeesService.deleteEmployee(action.id).pipe(
-                    map((Employee) => {
-                        alert('Employee Deleted Successfully');
-                        return { type: '[EmployeeList Page] Fetch Employees' };
-                    }),
-                    catchError(() =>
-                        of({ type: '[Employees API] Employee Delete Error' })
-                    )
-                )
-            )
-        )
-    );
-    addEmployee$ = createEffect(() =>
-        this.actions$.pipe(
-            ofType(addEmployee),
-            exhaustMap((action: any) =>
-                this.officeEmployeesService
-                    .addNewEmployee(action.employee)
-                    .pipe(
+        );
+        this.deleteEmployee$ = createEffect(() =>
+            this.actions$.pipe(
+                ofType(deleteEmployee),
+                exhaustMap((action: any) =>
+                    this.employeeService.deleteEmployee(action.id).pipe(
                         map((Employee) => {
-                            alert('Employee Added Successfully');
+                            alert('Employee Deleted Succesfully');
+                            return {
+                                type: '[EmployeeList Page] Fetch Employees',
+                            };
+                        }),
+                        catchError(() =>
+                            of({
+                                type: '[Employees API] Employee Delete Error',
+                            })
+                        )
+                    )
+                )
+            )
+        );
+        this.addEmployee$ = createEffect(() =>
+            this.actions$.pipe(
+                ofType(addEmployee),
+                exhaustMap((action: any) =>
+                    this.employeeService.addEmployee(action.employee).pipe(
+                        map((Employee) => {
+                            alert('Employee Added Succesfully');
                             return {
                                 type: '[EmployeeList Page] Fetch Employees',
                             };
@@ -60,11 +70,8 @@ export class EmployeeEffects {
                             of({ type: '[Employees API] Employee Add Error' })
                         )
                     )
+                )
             )
-        )
-    );
-    constructor(
-        private actions$: Actions,
-        private officeEmployeesService: OfficeEmployeesService
-    ) {}
+        );
+    }
 }

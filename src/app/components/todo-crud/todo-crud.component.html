@@ -1,0 +1,18 @@
+<h4>Add new task</h4>
+<input type="text" [(ngModel)]="todoText" />
+<button (click)="addTodo()">Add task</button>
+<ol>
+    @for(todo of todos$ | async; track $index){
+    <li>
+        <span [ngClass]="{ strikethrough: todo.isCompleted }">{{
+            todo.text
+        }}</span>
+        <button class="btn btn-danger m-2" (click)="deleteTodo(todo.id)">
+            Delete
+        </button>
+        <button class="btn btn-secondary" (click)="toggleTodo(todo.id)">
+            Toggle
+        </button>
+    </li>
+    }
+</ol>

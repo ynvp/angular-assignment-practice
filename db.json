@@ -1,15 +1,28 @@
 {
   "employees": [
     {
-      "id": "100",
-      "FIRST_NAME": "Steven hel",
-      "LAST_NAME": "King",
-      "EMAIL": "SKING",
-      "PHONE_NUMBER": "515.123.456999",
-      "HIRE_DATE": "1987-06-17",
-      "SALARY": 24000,
-      "DEPARTMENT_ID": 90,
-      "Image": "http://hancockogundiyapartners.com/wp-content/uploads/2019/07/dummy-profile-pic-300x300.jpg"
+      "eId": 100,
+      "fName": "Steven hel",
+      "lName": "King",
+      "sal": 24000,
+      "gender": "male",
+      "id": "33"
+    },
+    {
+      "eId": 100,
+      "fName": "Steven hel",
+      "lName": "King",
+      "sal": 24000,
+      "gender": "male",
+      "id": "32"
+    },
+    {
+      "eId": 100,
+      "fName": "Steven hel",
+      "lName": "King",
+      "sal": 24000,
+      "gender": "male",
+      "id": "37"
     }
   ]
 }

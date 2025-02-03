@@ -7,14 +7,14 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { Assignment8Component } from './components/assignment8/assignment8.component';
 import { ProductsComponent } from './components/products/products.component';
-import { Assignment90Component } from './components/assignment90/assignment90.component';
-import { EmployeeDetailsComponent } from './components/assignment90/employee-details/employee-details.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { PermanentComponent } from './components/careers/permanent/permanent.component';
 import { ContractComponent } from './components/careers/contract/contract.component';
 import { adminGuard } from './guards/admin.guard';
 import { hasChangesGuard } from './guards/has-changes.guard';
 import { productDetailsResolver } from './resolvers/product-details.resolver';
+import { EmployeeCrudComponent } from './components/employee-crud/employee-crud.component';
+import { TodoCrudComponent } from './components/todo-crud/todo-crud.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -32,8 +32,7 @@ export const routes: Routes = [
         component: ContactUsComponent,
         canDeactivate: [hasChangesGuard],
     },
-    { path: 'employees', component: Assignment90Component },
-    { path: 'employeeDetails/:id', component: EmployeeDetailsComponent },
+    { path: 'employees', component: EmployeeCrudComponent },
     {
         path: 'products',
         component: ProductsComponent,
@@ -43,6 +42,10 @@ export const routes: Routes = [
         path: 'productDetails',
         component: ProductDetailsComponent,
         resolve: { product: productDetailsResolver },
+    },
+    {
+        path: 'todo',
+        component: TodoCrudComponent,
     },
     { path: '', component: HomeComponent },
     { path: '**', component: NotFoundComponent },
