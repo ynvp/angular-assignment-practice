@@ -12,6 +12,7 @@ import { employeesReducer } from './ngrx/reducers/employee.reducers';
 import { counterReducer } from './ngrx/reducers/counter.reducers';
 import { EmployeeEffects } from './ngrx/effects/employee.effects';
 import { todoReducer } from './ngrx/reducers/todo.reducers';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 // import { todoReducer } from './ngrx/reducers/todo.reducer ';
 
 export const appConfig: ApplicationConfig = {
@@ -32,6 +33,6 @@ export const appConfig: ApplicationConfig = {
             employees: employeesReducer,
             todoArr: todoReducer,
         }),
-        provideEffects(EmployeeEffects),
+        provideEffects(EmployeeEffects), provideAnimationsAsync(),
     ],
 };
